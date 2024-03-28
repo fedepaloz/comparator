@@ -20,6 +20,7 @@
               <div>
                 <q-checkbox v-model="moduleValues.gasInterested" label="Gas" />
               </div>
+
               <div>
                 <q-checkbox
                   v-model="moduleValues.energyInterested"
@@ -29,6 +30,7 @@
             </q-step>
             <!-- questionario contratto gas -->
             <q-step
+              :disable="moduleValues.gasInterested === false"
               :name="2"
               title="Gas"
               caption="Compila il questionario"
@@ -198,6 +200,7 @@
             </q-step>
 
             <q-step
+              :disable="moduleValues.energyInterested === false"
               :name="3"
               title="Luce"
               icon="assignment"
@@ -479,54 +482,6 @@ const isDisabled = ref(false);
 const billCadenceOptions = ref(["monthly", "bimonthly"]);
 const clientTypeOptions = ref(["private", "VAT"]);
 
-//const contractTypeModel = ref(null);
-//const gasClientTypeModel = ref(null);
-//const gasBillCadenceModel = ref(null);
-
-// //questinario gas
-// const gasAnnualConsumptionOnBill = ref(null);
-// const gasFirstYearOnBill = ref(null);
-// const gasSecondYearOnBill = ref(null);
-// const gasFirstMonthOnBill = ref(null);
-// const gasSecondMonthOnBill = ref(null);
-// const gasFirstMonthConsumptionOnBill = ref(null);
-// const gasSecondMonthConsumptionOnBill = ref(null);
-// const gasVatOnBill = ref(null);
-// const gasExpense = ref(null);
-// const gasManagementCost = ref(null);
-// const gasSystemCharges = ref(null);
-// const gasOtherCosts = ref(null);
-// const gasExcise = ref(null);
-// const gasVat = ref(null);
-
-// //questionario luce
-
-// const energyBillCadenceModel = ref(null);
-// const energyFirstMonthConsumptionOnBill = ref(null);
-// const energySecondMonthConsumptionOnBill = ref(null);
-// const energyClientTypeModel = ref(null);
-// const energyCommittedPower = ref(null);
-// const energyAvailablePower = ref(null);
-// const energyAnnualConsumptionOnBill = ref(null);
-// const energyFirstYearOnbill = ref(null);
-// const energySecondYearOnbill = ref(null);
-// const energyFirstMonthOnBill = ref(null);
-// const energySecondMonthOnBill = ref(null);
-// const energyVatOnBill = ref(null);
-// const energyExpense = ref(null);
-// const energyManagementCost = ref(null);
-// const energySystemCharges = ref(null);
-// const energyOtherCosts = ref(null);
-// const energyExcise = ref(null);
-// const energyVat = ref(null);
-// const rai = ref(null);
-// //questionario anagrafiche
-// const clientName = ref(null);
-// const clientLastname = ref(null);
-// const clientEmail = ref(null);
-// const clientPhoneNmber = ref(null);
-// const clientTaxCode = ref(null);
-
 const moduleValues = ref({
   gasInterested: false,
   energyInterested: false,
@@ -538,51 +493,6 @@ const step = ref(1);
 
 const sendDataToBackEnd = () => {
   const data = moduleValues.value;
-  // {
-  //   name: clientName.value,
-  //   lastname: clientLastname.value,
-  //   email: clientEmail.value,
-  //   phone_number: clientPhoneNmber.value,
-  //   compilation_date: "",
-  //   tax_code: clientTaxCode.value,
-  //   energy_bill_cadence: energyBillCadenceModel.value,
-  //   gas_bill_cadence: gasBillCadenceModel.value,
-  //   energy_first_month_consumption: energyFirstMonthConsumptionOnBill.value,
-  //   energy_second_month_consumption: energySecondMonthConsumptionOnBill.value,
-  //   energy_client_type: energyClientTypeModel.value,
-  //   energy_committed_power: energyCommittedPower.value,
-  //   energy_available_power: energyAvailablePower.value,
-  //   energy_annual_consumption_on_bill: energyAnnualConsumptionOnBill.value,
-  //   energy_first_year_on_bill: energyFirstYearOnbill.value,
-  //   energy_second_year_on_bill: energySecondYearOnbill.value,
-  //   energy_first_month_on_bill: energyFirstMonthOnBill.value,
-  //   energy_second_month_on_bill: energySecondMonthOnBill.value,
-  //   energy_vat_on_bill: energyVatOnBill.value,
-  //   energy_interested: contractTypeModel.value,
-  //   gas_interested: contractTypeModel.value,
-  //   energy_expense: energyExpense.value,
-  //   energy_management_cost: energyManagementCost.value,
-  //   energy_system_charges: energySystemCharges.value,
-  //   energy_other_costs: energyOtherCosts.value,
-  //   energy_excise: energyExcise.value,
-  //   energy_vat: energyVat.value,
-  //   energy_rai_fee: rai.value,
-  //   gas_first_month_consumption: gasFirstMonthConsumptionOnBill.value,
-  //   gas_second_month_consumption: gasSecondMonthConsumptionOnBill.value,
-  //   gas_client_type: gasClientTypeModel.value,
-  //   gas_annual_consumption_on_bill: gasAnnualConsumptionOnBill.value,
-  //   gas_first_year_on_bill: gasFirstYearOnBill.value,
-  //   gas_second_year_on_bill: gasSecondYearOnBill.value,
-  //   gas_first_month_on_bill: gasFirstMonthOnBill.value,
-  //   gas_second_month_on_bill: gasSecondMonthOnBill.value,
-  //   gas_vat_on_bill: gasVatOnBill.value,
-  //   gas_expense: gasExpense.value,
-  //   gas_management_cost: gasManagementCost.value,
-  //   gas_system_charges: gasSystemCharges.value,
-  //   gas_other_costs: gasOtherCosts.value,
-  //   gas_excise: gasExcise.value,
-  //   gas_vat: gasVat.value,
-  // };
 
   axios
     .post("http://localhost/comparator/backend/post_handler.php", data)
