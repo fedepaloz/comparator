@@ -1,10 +1,4 @@
 <template>
-  <!-- <div>
-    <input v-model="name" type="text" />
-    <button @click="postData">Send Data</button>
-  </div>
-  {{}} -->
-
   <q-layout>
     <q-page-container>
       <q-page>

@@ -2,32 +2,25 @@
 header("Access-Control-Allow-Origin: http://localhost:9000");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
-// Assuming you have already established a connection to your database
-// Database configuration
+
 $dbHost = 'localhost';
 $dbName = 'comparatore_db';
 $dbUser = 'root';
 $dbPass = '';
 
-// Attempt to connect to the database
 try {
-    // Establish a new PDO connection
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
 
-    // Set PDO to throw exceptions on errors
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Optionally, you can set other attributes such as character set and timezone
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->exec("SET NAMES 'utf8'");
-    $pdo->exec("SET TIME_ZONE = '+00:00'"); // Set timezone if needed
+    $pdo->exec("SET TIME_ZONE = '+00:00'"); 
 } catch(PDOException $e) {
-    // If connection fails, display an error message
     die("Connection failed: " . $e->getMessage());
 }
 
-// Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data =  json_decode(file_get_contents("php://input"), true);
     try {
@@ -178,7 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error: " . $e->getMessage();
     }
 } else {
-    // Handle other request methods (GET, PUT, DELETE, etc.) if needed
     echo "Only POST requests are allowed";
 }
 ?>
