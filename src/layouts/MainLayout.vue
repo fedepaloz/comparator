@@ -39,24 +39,23 @@
                   v-model="moduleValues.gasBillCadenceModel"
                   label="Bimestrale/Semestrale"
                   :options="billCadenceOptions"
-                  lazy-rules
-                  :rules="[
-                    (val) => (val && val.length > 0) || 'Compilare il campo',
-                  ]"
+                  :rules="[(val) => val || 'Compilare il campo']"
                 />
                 <q-input
                   class="col-3"
+                  type="number"
                   filled
-                  v-model="moduleValues.gasFirstMonthConsumptionOnBill"
+                  v-model.trim="moduleValues.gasFirstMonthConsumptionOnBill"
                   label="Consume mese 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasSecondMonthConsumptionOnBill"
+                  v-model.trim="moduleValues.gasSecondMonthConsumptionOnBill"
                   label="Consume mese 2 in bolletta"
                   lazy-rules
                   :rules="[
@@ -69,13 +68,12 @@
                   label="Tipo cliente"
                   :options="clientTypeOptions"
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.length > 0) || 'Compilare il campo',
-                  ]"
+                  :rules="[(val) => val || 'Compilare il campo']"
                 /><q-input
                   class="col-3"
+                  type="number"
                   filled
-                  v-model="moduleValues.gasAnnualConsumptionOnBill"
+                  v-model.trim="moduleValues.gasAnnualConsumptionOnBill"
                   label="Consumo annuo in bolletta"
                   lazy-rules
                   :rules="[
@@ -83,108 +81,120 @@
                   ]"
                 /><q-input
                   class="col-3"
+                  type="number"
                   filled
-                  v-model="moduleValues.gasFirstYearOnBill"
+                  v-model.trim="moduleValues.gasFirstYearOnBill"
                   label="Anno 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasSecondYearOnBill"
+                  v-model.trim="moduleValues.gasSecondYearOnBill"
                   label="Anno 2 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasFirstMonthOnBill"
+                  v-model.trim="moduleValues.gasFirstMonthOnBill"
                   label="Mese 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasSecondMonthOnBill"
+                  v-model.trim="moduleValues.gasSecondMonthOnBill"
                   label="Mese 2 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasVatOnBill"
+                  v-model.trim="moduleValues.gasVatOnBill"
                   label="IVA in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasExpense"
+                  v-model.trim="moduleValues.gasExpense"
                   label="Spesa per il gas"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasManagementCost"
+                  v-model.trim="moduleValues.gasManagementCost"
                   label="Spesa per trasporto e gestione contatore"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasSystemCharges"
+                  v-model.trim="moduleValues.gasSystemCharges"
                   label="Spese per oneri di sistema"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasOtherCosts"
+                  v-model.trim="moduleValues.gasOtherCosts"
                   label="Altre partite"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasExcise"
+                  v-model.trim="moduleValues.gasExcise"
                   label="Accise"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.gasVat"
+                  v-model.trim="moduleValues.gasVat"
                   label="IVA"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.rai"
-                  label="IVA"
+                  v-model.trim="moduleValues.rai"
+                  label="Canone rai"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
@@ -201,6 +211,7 @@
               caption="Compila il questionario"
             >
               <!-- FORM DEL COMPARATORE DELLA LUCE -->
+              {{ billCadenceOptions.label }}
               <q-form class="q-gutter-md row">
                 <q-select
                   class="col-3"
@@ -209,23 +220,23 @@
                   label="Bimestrale/Semestrale"
                   :options="billCadenceOptions"
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.length > 0) || 'Compilare il campo',
-                  ]"
+                  :rules="[(val) => val || 'Compilare il campo']"
                 />
                 <q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyFirstMonthConsumptionOnBill"
+                  v-model.trim="moduleValues.energyFirstMonthConsumptionOnBill"
                   label="Consume mese 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energySecondMonthConsumptionOnBill"
+                  v-model.trim="moduleValues.energySecondMonthConsumptionOnBill"
                   label="Consume mese 2 in bolletta"
                   lazy-rules
                   :rules="[
@@ -238,130 +249,143 @@
                   label="Tipo cliente"
                   :options="clientTypeOptions"
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.length > 0) || 'Compilare il campo',
-                  ]"
-                /><q-input
+                  :rules="[(val) => val || 'Compilare il campo']"
+                />
+                <q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyCommittedPower"
+                  v-model.trim="moduleValues.energyCommittedPower"
                   label="Potenza impegnata"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyAvailablePower"
+                  v-model.trim="moduleValues.energyAvailablePower"
                   label="Potenza disponibile"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyAnnualConsumptionOnBill"
+                  v-model.trim="moduleValues.energyAnnualConsumptionOnBill"
                   label="Consumo annuo in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyFirstYearOnBill"
+                  v-model.trim="moduleValues.energyFirstYearOnBill"
                   label="Anno 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energySecondYearOnBill"
+                  v-model.trim="moduleValues.energySecondYearOnBill"
                   label="Anno 2 in bolletta"
-                  lazy-rules
+                  lazy-rules="true"
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyFirstMonthOnBill"
+                  v-model.trim="moduleValues.energyFirstMonthOnBill"
                   label="Mese 1 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energySecondMonthOnBill"
+                  v-model.trim="moduleValues.energySecondMonthOnBill"
                   label="Mese 2 in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyVatOnBill"
+                  v-model.trim="moduleValues.energyVatOnBill"
                   label="IVA in bolletta"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyExpense"
+                  v-model.trim="moduleValues.energyExpense"
                   label="Spesa per l'energia"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyManagementCost"
+                  v-model.trim="moduleValues.energyManagementCost"
                   label="Spesa per trasporto e gestione contatore"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energySystemCharges"
+                  v-model.trim="moduleValues.energySystemCharges"
                   label="Spese per oneri di sistema"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyOtherCosts"
+                  v-model.trim="moduleValues.energyOtherCosts"
                   label="Altre partite"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyExcise"
+                  v-model.trim="moduleValues.energyExcise"
                   label="Accise"
                   lazy-rules
                   :rules="[
                     (val) => (val && val.length > 0) || 'Compilare il campo',
                   ]"
                 /><q-input
+                  type="number"
                   class="col-3"
                   filled
-                  v-model="moduleValues.energyVat"
+                  v-model.trim="moduleValues.energyVat"
                   label="IVA"
                   lazy-rules
                   :rules="[
@@ -382,7 +406,7 @@
                 <q-input
                   class="col-6"
                   filled
-                  v-model="moduleValues.clientName"
+                  v-model.trim="moduleValues.clientName"
                   label="Nome"
                   lazy-rules
                   :rules="[
@@ -392,7 +416,7 @@
                 <q-input
                   class="col-6"
                   filled
-                  v-model="moduleValues.clientLastname"
+                  v-model.trim="moduleValues.clientLastname"
                   label="Cognome"
                   lazy-rules
                   :rules="[
@@ -402,7 +426,7 @@
                 <q-input
                   class="col-6"
                   filled
-                  v-model="moduleValues.clientEmail"
+                  v-model.trim="moduleValues.clientEmail"
                   label="Email"
                   lazy-rules
                   :rules="[
@@ -412,7 +436,7 @@
                 <q-input
                   class="col-6"
                   filled
-                  v-model="moduleValues.clientPhoneNmber"
+                  v-model.trim="moduleValues.clientPhoneNmber"
                   label="Numero di telefono"
                   lazy-rules
                   :rules="[
@@ -422,7 +446,7 @@
                 <q-input
                   class="col-6"
                   filled
-                  v-model="moduleValues.clientTaxCode"
+                  v-model.trim="moduleValues.clientTaxCode"
                   label="Partita IVA"
                   lazy-rules
                   :rules="[
@@ -473,20 +497,46 @@ import axios from "axios";
 const isDisabled = ref(false);
 
 //questionario
-const billCadenceOptions = ref(["monthly", "bimonthly"]);
-const clientTypeOptions = ref(["private", "VAT"]);
+const billCadenceOptions = ref([
+  {
+    id: "monthly",
+    label: "mensile",
+  },
+  {
+    id: "bimonthly",
+    label: "bimestrale",
+  },
+]);
+const clientTypeOptions = ref([
+  { id: "private", label: "privato" },
+  { id: "VAT", label: "partita iva" },
+]);
 
 const moduleValues = ref({
   gasInterested: false,
   energyInterested: false,
-  compilationDate: "",
+  compilationDate: new Date(),
 });
 
 const name = ref("");
 const step = ref(1);
 
 const sendDataToBackEnd = () => {
-  const data = moduleValues.value;
+  const {
+    energyBillCadenceModel,
+    gasBillCadenceModel,
+    gasClientTypeModel,
+    ...rest
+  } = moduleValues.value;
+
+  const data = {
+    ...rest,
+    gasBillCadenceModel: gasBillCadenceModel.id,
+    gasClientTypeModel: gasClientTypeModel.id,
+    energyBillCadenceModel: energyBillCadenceModel.id,
+  };
+
+  console.log(data, "data");
 
   axios
     .post("http://localhost/comparator/backend/post_handler.php", data)
